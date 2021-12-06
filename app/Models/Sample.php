@@ -96,7 +96,7 @@ class Sample extends Model
         'ph_result',
         'pom_percent',
         'pom_diameter',
-        'mg_kg_aminsugar_n',
+        'amino_n_result',
         'total_stableaggregates',
         'twomm_aggreg_pct_result',
         'twofiftymicron_aggreg_pct_result',
@@ -219,7 +219,7 @@ class Sample extends Model
         return null;
     }
 
-    public function getAminoNAttribute()
+    public function getAminoNResultAttribute()
     {
         if ($this->analysis_amino_n->count() > 0) {
             return $this->analysis_amino_n()->first()->mg_kg_aminsugar_n;
