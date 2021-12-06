@@ -7,6 +7,7 @@ use App\Models\AnalysisP;
 use App\Models\AnalysisPh;
 use App\Models\AnalysisPom;
 use App\Models\AnalysisPoxc;
+use App\Models\AnalysisAminoN;
 use App\Models\Views\SampleMerged;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
@@ -41,6 +42,8 @@ use Illuminate\Database\Query\Builder;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AnalysisPoxc[] $analysis_poxc
  * @property-read int|null $analysis_poxc_count
  * @property-read mixed $poxc_result
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\AnalysisAminoN[] $analysis_amino_n
+ * @property-read int|null $analysis_amino_n_count
  * @property-read \App\Models\Project $project
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Sample newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Sample newQuery()
@@ -93,6 +96,7 @@ class Sample extends Model
         'ph_result',
         'pom_percent',
         'pom_diameter',
+        'amino_n_result',
         'total_stableaggregates',
         'twomm_aggreg_pct_result',
         'twofiftymicron_aggreg_pct_result',
@@ -215,6 +219,14 @@ class Sample extends Model
         return null;
     }
 
+    public function getAminoNResultAttribute()
+    {
+        if ($this->analysis_amino_n->count() > 0) {
+            return $this->analysis_amino_n()->first()->mg_kg_aminsugar_n;
+        }
+
+        return null;
+    }
 
     public function getTotalStableaggregatesAttribute()
     {
@@ -262,6 +274,11 @@ class Sample extends Model
     public function analysis_poxc()
     {
         return $this->hasMany(AnalysisPoxc::class);
+    }
+
+    public function analysis_amino_n()
+    {
+        return $this->hasMany(AnalysisAminoN::class);
     }
 
     public function analysis_agg()
