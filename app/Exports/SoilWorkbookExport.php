@@ -23,6 +23,7 @@ class SoilWorkbookExport implements WithMultipleSheets
             new AnalysisPhExport($this->project),
             new AnalysisPomExport($this->project),
             new AnalysisPoxcExport($this->project),
+            new AnalysisAminoNExport($this->project),
             new AnalysisAggExport($this->project),
         ];
     }
