@@ -26,6 +26,8 @@ return [
     'pH Value' => 'pH Value',
     'POM Percent' => 'POM Percent',
     'POM Percent Units' => '%',
+    'Amino N' => 'Amino N',
+    'Amino N Units' => 'Mg N/kg soil',
     'POM Diameter' => 'POM Diameter',
     'POM Diameter Units' => 'cm',
     'Stable Aggregates' => 'Stable Aggregates',

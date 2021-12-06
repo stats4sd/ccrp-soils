@@ -74,6 +74,7 @@ class DataMapCrudController extends CrudController
                 'options' => [
                     'Sample' => 'Sample Data',
                     'AnalysisAgg' => 'analysis_agg',
+                    'AnalysisAminoN' => 'analysis_amino_n',
                     'AnalysisP' => 'analysis_p',
                     'AnalysisPh' => 'analysis_ph',
                     'AnalysisPom' => 'analysis_pom',

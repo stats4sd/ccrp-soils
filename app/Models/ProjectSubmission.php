@@ -8,6 +8,7 @@ use App\Models\AnalysisPh;
 use App\Models\AnalysisAgg;
 use App\Models\AnalysisPom;
 use App\Models\AnalysisPoxc;
+use App\Models\AnalysisAminoN;
 use App\Models\ProjectXlsform;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
@@ -115,6 +116,11 @@ class ProjectSubmission extends Model
     public function analysis_poxc()
     {
         return $this->hasMany(AnalysisPoxc::class);
+    }
+
+    public function amino_n()
+    {
+        return $this->hasMany(AnalysisAminoN::class);
     }
 
     public function samples()

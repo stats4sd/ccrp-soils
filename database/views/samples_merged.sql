@@ -75,6 +75,12 @@ SELECT
 	`analysis_pom`.`percent_pom` AS `analayis_pom-percent_pom`,
     `analysis_pom`.`analysis_date` AS `analayis_pom-analysis_date`,
 
+    `analysis_amino_n`.`weight_soil` AS `analysis_amino_n-weight_soil`,
+	`analysis_amino_n`.`weight_blank_acid_titrant` AS `analysis_amino_n-weight_blank_acid_titrant`,
+	`analysis_amino_n`.`weight_sample_acid_titrant` AS `analysis_amino_n-weight_sample_acid_titrant`,
+	`analysis_amino_n`.`mg_kg_aminsugar_n` AS `analysis_amino_n-mg_kg_aminsugar_n`,
+    `analysis_amino_n`.`analysis_date` AS `analysis_amino_n-analysis_date`,
+    
     `analysis_agg`.`weight_soil` AS `analysis_agg-weight_soil`,
     `analysis_agg`.`weight_cloth` AS `analysis_agg-weight_cloth`,
     `analysis_agg`.`weight_stones2mm` AS `analysis_agg-weight_stones2mm`,
@@ -98,4 +104,5 @@ LEFT JOIN `analysis_p` on `samples`.`id` = `analysis_p`.`sample_id`
 LEFT JOIN `analysis_ph` on `samples`.`id` = `analysis_ph`.`sample_id`
 LEFT JOIN `analysis_poxc` on `samples`.`id` = `analysis_poxc`.`sample_id`
 LEFT JOIN `analysis_pom`  on `samples`.`id` = `analysis_pom`.`sample_id`
+LEFT JOIN `analysis_amino_n` on `samples`.`id` = `analysis_amino_n`.`sample_id`
 LEFT JOIN `analysis_agg`  on `samples`.`id` = `analysis_agg`.`sample_id`

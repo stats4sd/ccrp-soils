@@ -143,6 +143,11 @@ class SampleMergedController extends Controller
         `analysis_pom`.`weight_pom` AS `analayis_pom-weight_pom`,
         `analysis_pom`.`percent_pom` AS `analayis_pom-percent_pom`,
         `analysis_pom`.`analysis_date` AS `analayis_pom-analysis_date`,
+        `analysis_amino_n`.`weight_soil` AS `analysis_amino_n-weight_soil`,
+        `analysis_amino_n`.`weight_blank_acid_titrant` AS `analysis_amino_n-weight_blank_acid_titrant`,
+        `analysis_amino_n`.`weight_sample_acid_titrant` AS `analysis_amino_n-weight_sample_acid_titrant`,
+        `analysis_amino_n`.`mg_kg_aminsugar_n` AS `analysis_amino_n-mg_kg_aminsugar_n`,
+        `analysis_amino_n`.`analysis_date` AS `analysis_amino_n-analysis_date`,
         `analysis_agg`.`weight_soil` AS `analysis_agg-weight_soil`,
         `analysis_agg`.`weight_cloth` AS `analysis_agg-weight_cloth`,
         `analysis_agg`.`weight_stones2mm` AS `analysis_agg-weight_stones2mm`,
@@ -159,13 +164,14 @@ class SampleMergedController extends Controller
         `analysis_agg`.`total_check` AS `analysis_agg-total_check`,
         `analysis_agg`.`validation_check` AS `analysis_agg-validation_check`,
         `analysis_agg`.`analysis_date` AS `analysis_agg-analysis_date`
-    FROM (((((`samples`
+    FROM ((((((`samples`
                     LEFT JOIN `analysis_p` `analysis_p_lr` ON ((`samples`.`id` = `analysis_p_lr`.`sample_id` and `analysis_p_lr`.`reagents` = 'LR')))
                     LEFT JOIN `analysis_p` `analysis_p_hr` ON ((`samples`.`id` = `analysis_p_hr`.`sample_id` and `analysis_p_hr`.`reagents` = 'HR'))
                     LEFT JOIN `analysis_p` `analysis_p_customr` ON ((`samples`.`id` = `analysis_p_customr`.`sample_id` and `analysis_p_customr`.`reagents` = 'Custom R'))
                 LEFT JOIN `analysis_ph` ON ((`samples`.`id` = `analysis_ph`.`sample_id`)))
             LEFT JOIN `analysis_poxc` ON ((`samples`.`id` = `analysis_poxc`.`sample_id`)))
         LEFT JOIN `analysis_pom` ON ((`samples`.`id` = `analysis_pom`.`sample_id`)))
+        LEFT JOIN `analysis_amino_n` ON ((`samples`.`id` = `analysis_amino_n`.`sample_id`)))
         LEFT JOIN `analysis_agg` ON ((`samples`.`id` = `analysis_agg`.`sample_id`)))";
 
         // create or update file in databases views folder
