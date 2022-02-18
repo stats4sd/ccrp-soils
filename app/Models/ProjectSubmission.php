@@ -82,6 +82,18 @@ class ProjectSubmission extends Model
         return null;
     }
 
+    public function getProjectNameAttribute()
+    {
+        return $this->project ? $this->project->name : null;
+    }
+
+    public function getXlsformTitleAttribute()
+    {
+        return $this->project_xlsform ? $this->project_xlsform->title : null;
+    }
+
+
+
     public function project_xlsform()
     {
         return $this->belongsTo(ProjectXlsform::class, 'project_xlsform_id');
