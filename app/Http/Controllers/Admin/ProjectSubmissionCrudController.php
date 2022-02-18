@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Project;
 use App\Helpers\GenericHelper;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Admin\Operations\ReviseOperation;
 use App\Http\Requests\ProjectSubmissionRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\Operations\ReviseOperation;
+use App\Models\Xlsform;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -47,10 +49,10 @@ class ProjectSubmissionCrudController extends CrudController
         //     ->leftJoin('xlsforms', 'xlsforms.id', '=', 'project_xlsform.xlsform_id');
 
         if (Auth::user()->isAdmin()) {
-            CRUD::column('project_xlsform.project.name')->label('project');
+            CRUD::column('project_name')->label('project');
         }
 
-        CRUD::column('project_xlsform.title')->label('XLS Form')->limit(5000)->wrapper([
+        CRUD::column('xlsform_title')->label('XLS Form')->limit(5000)->wrapper([
             'element' => 'div',
             'class' => 'd-block text-wrap',
         ])->orderLogic(function ($query, $column, $columnDirection) {
@@ -81,6 +83,37 @@ class ProjectSubmissionCrudController extends CrudController
             $query->orWhere('project_submissions.content->sample_id', 'like', '%'.$searchTerm.'%')
             ->orWhere('project_submissions.content->no_bar_code', 'like', '%'.$searchTerm.'%');
         });
+
+
+        CRUD::addFilter(
+            [
+            'name' => 'project',
+            'type' => 'select2',
+            'label' => 'Filter by Project',
+        ],
+            function () {
+                return Project::all()->pluck('name', 'id')->toArray();
+            },
+            function ($value) {
+                $this->crud->query = $this->crud->query->where('project_submissions.project_id', $value);
+            }
+        );
+
+        CRUD::addFilter(
+            [
+            'name' => 'xlsform',
+            'type' => 'select2',
+            'label' => 'Filter by Xlsform',
+        ],
+            function () {
+                return Xlsform::all()->pluck('title', 'id')->toArray();
+            },
+            function ($value) {
+                $this->crud->query = $this->crud->query->whereHas('project_xlsform', function ($query) use ($value) {
+                    $query->where('project_xlsform.xlsform_id', $value);
+                });
+            }
+        );
     }
 
     protected function setupShowOperation()
@@ -112,7 +145,6 @@ class ProjectSubmissionCrudController extends CrudController
         // $projectVariables = $this->crud->getCurrentEntry()->project->identifiers;
 
         foreach ($content as $field => $value) {
-            dump($field, $value);
             if (is_array($value)) {
                 $value = json_encode($value);
             }
