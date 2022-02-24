@@ -7,10 +7,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-12T13:29:53+00:00\n"
-"PO-Revision-Date: 2021-01-12 14:29+0100\n"
+"POT-Creation-Date: 2022-02-24T15:05:29+00:00\n"
+"PO-Revision-Date: 2022-02-24 16:05+0100\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
 
 #: app/Rules/KoboUsernameIsValid.php:57
 msgid "That username cannot be found on kf.kobotoolbox.org. Please use an active username. If you do not have a Kobotoolbox account, leave the field empty."
@@ -496,28 +496,36 @@ msgid "Project Data"
 msgstr "Datos del Proyecto"
 
 #: resources/views/projects/show.blade.php:16
+msgid "Project Nutrients Data"
+msgstr ""
+
+#: resources/views/projects/show.blade.php:19
 msgid "Project Members"
 msgstr "Miembros del proyecto"
 
-#: resources/views/projects/show.blade.php:19
+#: resources/views/projects/show.blade.php:22
 msgid "Project Settings"
 msgstr "Configuración del proyecto"
 
-#: resources/views/projects/show.blade.php:29
+#: resources/views/projects/show.blade.php:32
 msgid "Note - you have not entered your KoboToolbox Username, which means you will not be able to see these formson KoboToolbox or ODK Collect. You can update your account here:"
 msgstr "Nota: no ha ingresado su nombre de usuario de KoboToolbox, lo que significa que no podrá ver estos formularios en KoboToolbox o ODK Collect. Puede actualizar su cuenta aquí:"
 
-#: resources/views/projects/show.blade.php:29
+#: resources/views/projects/show.blade.php:32
 msgid "My Account"
 msgstr "Mi cuenta"
 
-#: resources/views/projects/show.blade.php:30
+#: resources/views/projects/show.blade.php:33
 msgid "You still have access to all the data collected with these forms."
 msgstr "Aún tiene acceso a todos los datos recopilados con estos formularios."
 
-#: resources/views/projects/show.blade.php:47
-msgid "Download Merged Sample Data"
-msgstr "Descargar datos de muestra combinados"
+#: resources/views/projects/show.blade.php:65
+msgid "Download sample data in wide Format"
+msgstr ""
+
+#: resources/views/projects/show.blade.php:66
+msgid "Download sample data in split format"
+msgstr ""
 
 #: resources/views/projects/tab-members.blade.php:5
 msgid "Avatar"

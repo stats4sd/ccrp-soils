@@ -8,7 +8,6 @@ return [
     'p Value'                   => 'Valeur p',
     'P Units'                   => 'Mg P/kg de sol',
     'pH Value'                  => 'Valeur pH',
-    'POM Value'                 => 'Valeur POM',
     'Stable Aggregates'         => 'Agrégats stables',
     'Total'                     => 'Total',
     'Form Name'                 => 'Nom du formulaire',

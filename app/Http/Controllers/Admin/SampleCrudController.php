@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\SampleRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Http\Controllers\Admin\Operations\ReviseOperation;
+
 
 /**
  * Class SampleCrudController
@@ -14,11 +16,10 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class SampleCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+   // use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -39,6 +40,8 @@ class SampleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+
+
         # CRUD::disableResponsiveTable();
         CRUD::enableDetailsRow();
 
@@ -82,5 +85,15 @@ class SampleCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+
+        CRUD::field('date')->type('date_picker')->date_picker_options(['format' => 'yyyy-mm-dd']);
+        CRUD::field('depth')->type('number')->label('Depth of sample (cm)');
+        CRUD::field('at_plot')->type('checkbox')->label('Was this record taken while at the actual plot?');
+        CRUD::field('gps-title')->type('custom_html')->value('<h5>GPS</h5>');
+        CRUD::field('latitude')->type('number')->label('Enter the latitude where the sample was taken ');
+        CRUD::field('longitude')->type('number')->label('Enter the longitude where the sample was taken ');
+        CRUD::field('altitude')->type('number')->label('Enter the altitude where the sample was taken ');
+        CRUD::field('longitude')->type('number')->label('Enter the accuracy of the GPS reading (enter 0 if this is selected from a map rather than automatically collected');
+        CRUD::field('comment')->type('textarea')->label('Enter any comments from the collection');
     }
 }

@@ -75,8 +75,14 @@ class ProjectXlsform extends Pivot
 
     public function getTitleAttribute()
     {
-        $project_name = str_replace('/', '_', $this->project->name);
-        $form_name = str_replace('/', '_', $this->xlsform->title);
+        $project_name = "";
+        $form_name = "";
+        if($this->project) {
+            $project_name = str_replace('/', '_', $this->project->name);
+        }
+        if($this->xlsform)  {
+            $form_name = str_replace('/', '_', $this->xlsform->title);
+        }
 
         return $project_name.' - '.$form_name;
     }

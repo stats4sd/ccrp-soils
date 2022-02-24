@@ -7,7 +7,6 @@ return [
     'p Value'                   => 'valor de p',
     'P Units'                   => 'mg P/Kg de suelo',
     'pH Value'                  => 'valor del pH',
-    'POM Value'                 => 'Valor de POM',
     'Stable Aggregates'         => 'Agregados estables',
     'Total'                     => 'Total',
     'Form Name'                 => 'Nombre del formulario',
@@ -27,5 +26,6 @@ return [
     'Update to latest form'     => 'Refrescar con el formulario más reciente
 ',
     'Re-deploy form'            => 'Re-publicar el formulario',
-    'Archive form'              => 'Archiver el formulario'
+    'Archive form'              => 'Archiver el formulario',
+    'p HR Value'                => 'valor de p'
 ];

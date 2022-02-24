@@ -10,7 +10,10 @@ use App\Models\AnalysisPoxc;
 use App\Models\AnalysisAminoN;
 use App\Models\Views\SampleMerged;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Venturecraft\Revisionable\RevisionableTrait;
+use Illuminate\Support\Facades\Auth;
+
 
 /**
  * App\Models\Sample
@@ -82,6 +85,7 @@ class Sample extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     public $incrementing = false;
+    public $keyType = "string";
     public $guarded = [];
     public $casts = [
         'identifiers' => 'array',
@@ -101,6 +105,20 @@ class Sample extends Model
         'twomm_aggreg_pct_result',
         'twofiftymicron_aggreg_pct_result',
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope('project', function (Builder $builder) {
+            if (Auth::check()) {
+                if (! Auth::user()->isAdmin()) {
+                    $userProjects = Auth::user()->projects()->get()->pluck('id')->toArray();
+
+                    $builder->whereIn('samples.project_id', $userProjects);
+                }
+            }
+        });
+    }
+
 
     public function project()
     {

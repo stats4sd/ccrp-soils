@@ -3,6 +3,9 @@
     <div class="container mt-4">
         {{ __("vue.samples-count") }}: <b> {{ samples.length }}</b>
     </div>
+    <div class="container mt-4" v-if="isProjectAdmin">
+        <a href="/admin/sample" class="btn btn-info">Review / Edit Soil Sample Data</a>
+    </div>
     <div class="row">
         <div class="col-md-11">
             <table class="table table-striped table-bordered w-100">
@@ -77,7 +80,7 @@
 </template>
 <script>
     export default {
-        props: ["project", "userId", "samples"],
+        props: ["project", "userId", "samples","isProjectAdmin"],
 
         data() {
             return {

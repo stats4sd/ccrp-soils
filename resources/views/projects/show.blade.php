@@ -47,6 +47,7 @@
                 :project="{{ $project->toJson() }}"
                 :user-id="{{ auth()->user()->id }}"
                 :samples="{{ $project->samples->toJson() }}"
+                :is-project-admin="{{ $project->admins->contains(auth()->user())}}">
             ></project-data-table>
             <h4>Downloads</h4>
             <div class="alert alert-info">

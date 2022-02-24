@@ -167,13 +167,13 @@ class ProjectSubmissionCrudController extends CrudController
         // }
     }
 
-    // /**
-    //  * Update the specified resource in the database.
-    //  * @param ProjectSubmissionRequest $request - type injection used for validation using Requests
-    //  * @return \Illuminate\Http\RedirectResponse
-    //  */
-    // public function update(ProjectSubmissionRequest $request)
-    // {
-    //     return $this->traitUpdate($request);
-    // }
+    /**
+     * Update the specified resource in the database.
+     * @param ProjectSubmissionRequest $request - type injection used for validation using Requests
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(ProjectSubmissionRequest $request)
+    {
+        return $this->traitUpdate($request);
+    }
 }
