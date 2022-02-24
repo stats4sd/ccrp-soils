@@ -88,7 +88,7 @@ class ProjectSubmissionCrudController extends CrudController
         CRUD::addFilter(
             [
             'name' => 'project',
-            'type' => 'select2',-
+            'type' => 'select2',
             'label' => 'Filter by Project',
         ],
             function () {
