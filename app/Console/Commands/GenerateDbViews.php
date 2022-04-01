@@ -31,7 +31,7 @@ class GenerateDbViews extends Command
      *
      * @var string
      */
-    protected $description = 'Generate and execute database view .sql files for projects"';
+    protected $description = 'Generate and execute database view .sql files for projects';
 
     /**
      * Create a new command instance.
