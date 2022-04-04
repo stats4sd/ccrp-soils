@@ -66,6 +66,8 @@ Route::group([
         Route::get('projects/{project}/samples/download-wide', 'SampleMergedController@download')->name('projects.samples.download-wide');
         Route::get('projects/{project}/samples/download-long', 'SampleController@download')->name('projects.samples.download-long');
 
+        Route::get('projects/{project}/nutrients/download', 'NutrientController@download')->name('projects.nutrients.download');
+
         // // Modified Resource Controller for ProjectMember
         Route::get('projects/{project}/projectmembers/create', 'ProjectMemberController@create')->name('projectmembers.create');
         Route::post('projects/{project}/projectmembers', 'ProjectMemberController@store')->name('projectmembers.store');
