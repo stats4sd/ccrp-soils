@@ -43,11 +43,6 @@
                 </project-forms-table>
         </div>
         <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
-            <project-data-table
-                :project="{{ $project->toJson() }}"
-                :user-id="{{ auth()->user()->id }}"
-                :samples="{{ $project->samples->toJson() }}"
-            ></project-data-table>
             <h4>Downloads</h4>
             <div class="alert alert-info">
                 Two download options are available. Choose "wide" format to receive:
@@ -63,10 +58,18 @@
                     <li>If there is more than 1 anlysis record for a specific sample, all the records will be shown.</li>
                 </ul>
             </div>
-            <a href="{{ route('projects.samples.download-wide', $project) }}" class="btn btn-success">{{ t("Download sample data in wide Format") }}</a>
+            <a href="{{ route('projects.samples.download-wide', $project) }}" class="btn btn-success">{{ t("Download sample data in wide format") }}</a>
             <a href="{{ route('projects.samples.download-long', $project) }}" class="btn btn-success">{{ t("Download sample data in split format") }}</a>
+            <project-data-table
+                :project="{{ $project->toJson() }}"
+                :user-id="{{ auth()->user()->id }}"
+                :samples="{{ $project->samples->toJson() }}"
+            ></project-data-table>
         </div>
         <div class="tab-pane fade wide-table" id="nutrients" role="tabpanel" aria-labelledby="nutrients-tab">
+            <a href="{{ route('projects.nutrients.download', $project) }}" class="btn btn-success">{{ t("Download nutrients data") }}</a>
+            <p></p>
+            <p>Note: Press [Shift] + mouse wheel to scroll horizontally</p>
             <project-nutrients-table
                 :project="{{ $project->toJson() }}"
                 :user-id="{{ auth()->user()->id }}">
