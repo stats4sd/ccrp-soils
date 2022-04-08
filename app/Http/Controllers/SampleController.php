@@ -12,7 +12,7 @@ class SampleController extends Controller
 {
     public function download(Project $project)
     {
-        $filename = $project->name . '-samples-' . now()->toDateTimeString() . '.xlsx';
+        $filename = $project->slug . '-samples-' . now()->toDateTimeString() . '.xlsx';
 
         return Excel::download(new SoilWorkbookExport($project), $filename);
     }

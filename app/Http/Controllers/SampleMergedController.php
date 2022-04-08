@@ -15,7 +15,7 @@ class SampleMergedController extends Controller
     public function download(Project $project)
     {
         $date = Carbon::now()->toDateTimeString();
-        return (new SampleMergedExport)->forProject($project)->download($project->name.'-all_sample_data-'.$date.".xlsx");
+        return (new SampleMergedExport)->forProject($project)->download($project->slug . '-all_sample_data-' . $date . ".xlsx");
     }
 
     public static function createCustomView(Project $project)
@@ -175,9 +175,9 @@ class SampleMergedController extends Controller
         LEFT JOIN `analysis_agg` ON ((`samples`.`id` = `analysis_agg`.`sample_id`)))";
 
         // create or update file in databases views folder
-        $projectSnakeName = "samples_merged_".Str::of($project->name)->slug('_');
+        $projectSnakeName = "samples_merged_" . Str::of($project->name)->slug('_');
 
-        file_put_contents(base_path('database/views/'.$projectSnakeName.'.sql'), $query);
+        file_put_contents(base_path('database/views/' . $projectSnakeName . '.sql'), $query);
 
         // rerun view creation
         Artisan::call('updatesql');
