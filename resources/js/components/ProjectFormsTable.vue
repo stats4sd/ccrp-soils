@@ -79,7 +79,7 @@
 
     const rootUrl = process.env.MIX_APP_URL
     export default {
-        props: ['project','userId'],
+        props: ['projectSlug','userId'],
         data() {
             return {
                 projectForms: [],
@@ -94,7 +94,7 @@
 
         mounted() {
 
-            axios.get(rootUrl+'/projects/'+this.project.slug+'/projectxlsforms')
+            axios.get(rootUrl+'/projects/'+this.projectSlug+'/projectxlsforms')
             .then((response) => {
                 this.projectForms = response.data
             })

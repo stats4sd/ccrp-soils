@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-    props: ['project'],
+    props: ['projectId'],
 
     data() {
         return {
@@ -54,16 +54,11 @@ export default {
         }
     },
     mounted: function(){
-        var project_id = this.project.id;
-
-        axios.get(`/nutrientbalance/${project_id}/json`)
+        axios.get(`/nutrientbalance/${projectId}/json`)
         .then((res) => {
             this.nutrientBalances = res.data;
         })
-
-
     }
-
 
 }
 </script>
