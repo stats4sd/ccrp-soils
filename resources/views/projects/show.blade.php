@@ -38,7 +38,6 @@
                 <!-- to pass project slug as a string to Vue component, wrap string value with single quote -->
                 <project-forms-table
                 :project-slug="'{{ $project->slug }}'"
-                :project-forms="{{ $project->project_xlsforms->toJson() }}"
                 :user-id="{{ auth()->user()->id }}"
                 >
                 </project-forms-table>

@@ -50,7 +50,7 @@ class ProjectController extends Controller
                 'users' => function ($q) {
                     $q->orderBy('pivot_admin', 'desc');
                 },
-                'project_xlsforms.xlsform',
+                # 'project_xlsforms.xlsform',
                 'samples',
             ]
         );
