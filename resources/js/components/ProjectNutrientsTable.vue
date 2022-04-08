@@ -54,7 +54,7 @@ export default {
         }
     },
     mounted: function(){
-        axios.get(`/nutrientbalance/${this.projectId}/json`)
+        axios.get(`/nutrientbalance/${this.projectId}/json`) 
         .then((res) => {
             this.nutrientBalances = res.data;
         })
