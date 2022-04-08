@@ -10,7 +10,7 @@
                     <th rowspan="2">{{ __("vue.Sample ID") }}</th>
 
                     <th
-                        v-for="identifier in project.identifiers"
+                        v-for="identifier in projectIdentifiers"
                         :key="identifier.name"
                         rowspan="2">
                         {{ identifier.label }}
@@ -50,7 +50,7 @@
 
 
                     <td
-                        v-for="identifier in project.identifiers"
+                        v-for="identifier in projectIdentifiers"
                         :key="identifier.name"
                     >
                         {{ sample.identifiers ? sample.identifiers[identifier.name] : ''}}
@@ -77,7 +77,7 @@
 </template>
 <script>
     export default {
-        props: ["project", "userId", "samples"],
+        props: ["projectIdentifiers", "userId", "samples"],
 
         data() {
             return {
@@ -87,7 +87,7 @@
             };
         },
         mounted: function() {
-            console.log(this.project.identifiers);
+            console.log(this.projectIdentifiers);
 
             // round things for display
             this.samplesDisplay = this.samples.map(sample => {
