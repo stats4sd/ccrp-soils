@@ -77,7 +77,7 @@
 </template>
 <script>
     export default {
-        props: ["projectIdentifiers", "userId", "samples"],
+        props: ["projectId", "projectIdentifiers", "userId", "samples"],
 
         data() {
             return {
@@ -89,39 +89,46 @@
         mounted: function() {
             console.log(this.projectIdentifiers);
 
-            // round things for display
-            this.samplesDisplay = this.samples.map(sample => {
-                console.log("sample:", sample);
-                if (sample.poxc_result) {
-                    sample.poxc_result = Number(sample.poxc_result).toFixed(2);
-                }
-                if (sample.p_result) {
-                    sample.p_result = Number(sample.p_result).toFixed(2);
-                }
-                if (sample.lr_p_result) {
-                    sample.lr_p_result = Number(sample.lr_p_result).toFixed(2);
-                }
-                if (sample.hr_p_result) {
-                    sample.hr_p_result = Number(sample.hr_p_result).toFixed(2);
-                    this.hasHR = true;
-                }
-                if (sample.custom_r_p_result) {
-                    sample.custom_r_p_result = Number(
-                        sample.custom_r_p_result
-                    ).toFixed(2);
-                    this.hasCustomR = true;
-                }
-                if (sample.ph_result) {
-                    sample.ph_result = Number(sample.ph_result).toFixed(2);
-                }
-                if (sample.total_stableaggregates) {
-                    sample.total_stableaggregates = Number(
-                        sample.total_stableaggregates
-                    ).toFixed(1);
-                }
+            axios.get(`/samplesdata/${this.projectId}/json`) 
+            .then((res) => {
+                this.samples = res.data;
 
-                return sample;
-            });
+                // round things for display
+                this.samplesDisplay = this.samples.map(sample => {
+                    console.log("sample:", sample);
+                    if (sample.poxc_result) {
+                        sample.poxc_result = Number(sample.poxc_result).toFixed(2);
+                    }
+                    if (sample.p_result) {
+                        sample.p_result = Number(sample.p_result).toFixed(2);
+                    }
+                    if (sample.lr_p_result) {
+                        sample.lr_p_result = Number(sample.lr_p_result).toFixed(2);
+                    }
+                    if (sample.hr_p_result) {
+                        sample.hr_p_result = Number(sample.hr_p_result).toFixed(2);
+                        this.hasHR = true;
+                    }
+                    if (sample.custom_r_p_result) {
+                        sample.custom_r_p_result = Number(
+                            sample.custom_r_p_result
+                        ).toFixed(2);
+                        this.hasCustomR = true;
+                    }
+                    if (sample.ph_result) {
+                        sample.ph_result = Number(sample.ph_result).toFixed(2);
+                    }
+                    if (sample.total_stableaggregates) {
+                        sample.total_stableaggregates = Number(
+                            sample.total_stableaggregates
+                        ).toFixed(1);
+                    }
+
+                    return sample;
+                });
+            
+            })
+
         }
     };
 </script>
