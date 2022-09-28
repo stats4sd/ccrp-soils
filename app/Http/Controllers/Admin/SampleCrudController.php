@@ -89,7 +89,16 @@ class SampleCrudController extends CrudController
     public function getJson($project_id = null)
     {
         if ($project_id) {
-            $data = Sample::where('project_id', $project_id)->get();
+            $data = Sample::where('project_id', $project_id)
+                ->with([
+                    'analysis_p',
+                    'analysis_ph',
+                    'analysis_pom',
+                    'analysis_poxc',
+                    'analysis_amino_n',
+                    'analysis_agg',
+                ])
+                ->get();
         } else {
             $data = Sample::get();
         }

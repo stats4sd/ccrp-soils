@@ -116,10 +116,10 @@ class Sample extends Model
     public function getPoxcResultAttribute()
     {
         if ($this->analysis_poxc->count() > 0) {
-            if ($this->analysis_poxc()->first()->poxc_soil_corrected) {
-                return $this->analysis_poxc()->first()->poxc_soil_corrected;
+            if ($this->analysis_poxc->first()->poxc_soil_corrected) {
+                return $this->analysis_poxc->first()->poxc_soil_corrected;
             }
-            return $this->analysis_poxc()->first()->poxc_soil;
+            return $this->analysis_poxc->first()->poxc_soil;
         }
         return null;
     }
@@ -128,10 +128,10 @@ class Sample extends Model
     public function getPResultAttribute()
     {
         if ($this->analysis_p->count() > 0) {
-            if ($this->analysis_p()->first()->olsen_p_corrected) {
-                return $this->analysis_p()->first()->olsen_p_corrected;
+            if ($this->analysis_p->first()->olsen_p_corrected) {
+                return $this->analysis_p->first()->olsen_p_corrected;
             }
-            return $this->analysis_p()->first()->olsen_p;
+            return $this->analysis_p->first()->olsen_p;
         }
 
         return null;
@@ -195,7 +195,7 @@ class Sample extends Model
     public function getPhResultAttribute()
     {
         if ($this->analysis_ph->count() > 0) {
-            return $this->analysis_ph()->first()->reading_ph;
+            return $this->analysis_ph->first()->reading_ph;
         }
 
         return null;
@@ -204,7 +204,7 @@ class Sample extends Model
     public function getPomPercentAttribute()
     {
         if ($this->analysis_pom->count() > 0) {
-            return $this->analysis_pom()->first()->percent_pom;
+            return $this->analysis_pom->first()->percent_pom;
         }
 
         return null;
@@ -213,7 +213,7 @@ class Sample extends Model
     public function getPomDiameterAttribute()
     {
         if ($this->analysis_pom->count() > 0) {
-            return $this->analysis_pom()->first()->diameter_circ_pom;
+            return $this->analysis_pom->first()->diameter_circ_pom;
         }
 
         return null;
@@ -222,7 +222,7 @@ class Sample extends Model
     public function getAminoNResultAttribute()
     {
         if ($this->analysis_amino_n->count() > 0) {
-            return $this->analysis_amino_n()->first()->mg_kg_aminsugar_n;
+            return $this->analysis_amino_n->first()->mg_kg_aminsugar_n;
         }
 
         return null;
@@ -231,7 +231,7 @@ class Sample extends Model
     public function getTotalStableaggregatesAttribute()
     {
         if ($this->analysis_agg->count() > 0) {
-            return $this->analysis_agg()->first()->total_stableaggregates;
+            return $this->analysis_agg->first()->total_stableaggregates;
         }
 
         return null;
@@ -240,7 +240,7 @@ class Sample extends Model
     public function getTwommAggregPctResultAttribute()
     {
         if ($this->analysis_agg->count() > 0) {
-            return $this->analysis_agg()->first()->twomm_aggreg_pct_result;
+            return $this->analysis_agg->first()->twomm_aggreg_pct_result;
         }
 
         return null;
@@ -249,7 +249,7 @@ class Sample extends Model
     public function getTwofiftymicronAggregPctResultAttribute()
     {
         if ($this->analysis_agg->count() > 0) {
-            return $this->analysis_agg()->first()->twofiftymicron_aggreg_pct_result;
+            return $this->analysis_agg->first()->twofiftymicron_aggreg_pct_result;
         }
 
         return null;
