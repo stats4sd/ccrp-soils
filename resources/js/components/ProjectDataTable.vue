@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="container mt-4">
-        {{ __("vue.samples-count") }}: <b> {{ samples.length }}</b>
+        {{ __("vue.samples-count") }}: <b> {{ samplesDisplay.length }}</b>
     </div>
     <div class="row">
         <div class="col-md-11">
@@ -45,6 +45,10 @@
                     <th style="border-left: 1px solid lightgray">{{ __("vue.Total") }}</th>
                 </tr>
 
+                <tr v-if="loading">
+                    <td :colspan="17 + (hasCustomR ? 1 : 0) + (hasHR ? 1 : 0)"><span class="spinner-border"></span> Loading soil sample data...</td>
+                </tr>
+
                 <tr v-for="sample in samplesDisplay" :key="sample.id">
                     <td>{{ sample.id }}</td>
 
@@ -77,19 +81,21 @@
 </template>
 <script>
     export default {
-        props: ["projectId", "projectIdentifiers", "userId", "samples"],
+        props: ["projectId", "projectIdentifiers", "userId"],
 
         data() {
             return {
                 samplesDisplay: [],
                 hasHR: false,
-                hasCustomR: false
+                hasCustomR: false,
+                loading: false
             };
         },
         mounted: function() {
             console.log(this.projectIdentifiers);
 
-            axios.get(`/samplesdata/${this.projectId}/json`) 
+            this.loading = true;
+            axios.get(`/samplesdata/${this.projectId}/json`)
             .then((res) => {
                 this.samples = res.data;
 
@@ -126,8 +132,9 @@
 
                     return sample;
                 });
-            
+
             })
+            .finally(() => this.loading = false)
 
         }
     };
