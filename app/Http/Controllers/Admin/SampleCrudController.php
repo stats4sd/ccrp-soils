@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\SampleRequest;
+use App\Models\Sample;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class SampleCrudController
@@ -82,5 +84,16 @@ class SampleCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function getJson($project_id = null)
+    {
+        if ($project_id) {
+            $data = Sample::where('project_id', $project_id)->get();
+        } else {
+            $data = Sample::get();
+        }
+
+        return $data->toJson();
     }
 }
