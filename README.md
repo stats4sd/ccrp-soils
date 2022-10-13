@@ -1,4 +1,8 @@
-# ccrp_soils_laravel
+# CCRP Soils Data Platform
+
+This soils platform is the result of a collaboration between the Soils and the Research Methods Support teams, a pair of cross-cutting projects from the Collaborative Crop Research Program (CCRP).
+
+https://soils.stats4sd.org/en/
 
 1. If you haven't run this locally since April2020, do a fresh migration (`php artisan migrate:fresh`) as a lot of little things have changed in the database.
 
