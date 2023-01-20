@@ -31,35 +31,48 @@ class AnalysisPomExport implements FromCollection, WithHeadings, WithMapping, Wi
     {
         return AnalysisPom::whereHas('sample', function (Builder $query) {
             $query->where('project_id', $this->project->id);
-        })->get();
+        })->with('sample')->get();
     }
 
     public function map($analysis): array
     {
-        return [
-            $analysis->sample_id,
-            $analysis->analysis_date,
-            $analysis->weight_soil,
-            $analysis->diameter_circ_pom,
-            $analysis->weigh_pom_yn,
-            $analysis->weight_cloth,
-            $analysis->weight_pom,
-            $analysis->percent_pom,
-        ];
+        $map = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $map[] = $analysis->sample->identifiers[$identifier['name']];
+        }
+
+        $map[] = $analysis->sample_id;
+        $map[] = $analysis->analysis_date;
+        $map[] = $analysis->weight_soil;
+        $map[] = $analysis->diameter_circ_pom;
+        $map[] = $analysis->weigh_pom_yn;
+        $map[] = $analysis->weight_cloth;
+        $map[] = $analysis->weight_pom;
+        $map[] = $analysis->percent_pom;
+
+        return $map;
     }
 
 
     public function headings(): array
     {
-        return [
-            'sample_id',
-            'analysis_date',
-            'weight_soil',
-            'diameter_circ_pom',
-            'weigh_pom_yn',
-            'weight_cloth',
-            'weight_pom',
-            'percent_pom',
-        ];
+
+        $headings = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $headings[] = $identifier['label'];
+        }
+
+        $headings[] = 'sample_id';
+        $headings[] = 'analysis_date';
+        $headings[] = 'weight_soil';
+        $headings[] = 'diameter_circ_pom';
+        $headings[] = 'weigh_pom_yn';
+        $headings[] = 'weight_cloth';
+        $headings[] = 'weight_pom';
+        $headings[] = 'percent_pom';
+
+        return $headings;
     }
 }

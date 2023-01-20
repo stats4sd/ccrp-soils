@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="container mt-4">
-        {{ __("vue.samples-count") }}: <b> {{ samples.length }}</b>
+        {{ __("vue.samples-count") }}: <b> {{ samplesDisplay.length }}</b>
     </div>
     <div class="row">
         <div class="col-md-11">
@@ -45,6 +45,10 @@
                     <th style="border-left: 1px solid lightgray">{{ __("vue.Total") }}</th>
                 </tr>
 
+                <tr v-if="loading">
+                    <td :colspan="17 + (hasCustomR ? 1 : 0) + (hasHR ? 1 : 0)"><span class="spinner-border"></span> Loading soil sample data...</td>
+                </tr>
+
                 <tr v-for="sample in samplesDisplay" :key="sample.id">
                     <td>{{ sample.id }}</td>
 
@@ -77,51 +81,61 @@
 </template>
 <script>
     export default {
-        props: ["projectIdentifiers", "userId", "samples"],
+        props: ["projectId", "projectIdentifiers", "userId"],
 
         data() {
             return {
                 samplesDisplay: [],
                 hasHR: false,
-                hasCustomR: false
+                hasCustomR: false,
+                loading: false
             };
         },
         mounted: function() {
             console.log(this.projectIdentifiers);
 
-            // round things for display
-            this.samplesDisplay = this.samples.map(sample => {
-                console.log("sample:", sample);
-                if (sample.poxc_result) {
-                    sample.poxc_result = Number(sample.poxc_result).toFixed(2);
-                }
-                if (sample.p_result) {
-                    sample.p_result = Number(sample.p_result).toFixed(2);
-                }
-                if (sample.lr_p_result) {
-                    sample.lr_p_result = Number(sample.lr_p_result).toFixed(2);
-                }
-                if (sample.hr_p_result) {
-                    sample.hr_p_result = Number(sample.hr_p_result).toFixed(2);
-                    this.hasHR = true;
-                }
-                if (sample.custom_r_p_result) {
-                    sample.custom_r_p_result = Number(
-                        sample.custom_r_p_result
-                    ).toFixed(2);
-                    this.hasCustomR = true;
-                }
-                if (sample.ph_result) {
-                    sample.ph_result = Number(sample.ph_result).toFixed(2);
-                }
-                if (sample.total_stableaggregates) {
-                    sample.total_stableaggregates = Number(
-                        sample.total_stableaggregates
-                    ).toFixed(1);
-                }
+            this.loading = true;
+            axios.get(`/samplesdata/${this.projectId}/json`)
+            .then((res) => {
+                this.samples = res.data;
 
-                return sample;
-            });
+                // round things for display
+                this.samplesDisplay = this.samples.map(sample => {
+                    console.log("sample:", sample);
+                    if (sample.poxc_result) {
+                        sample.poxc_result = Number(sample.poxc_result).toFixed(2);
+                    }
+                    if (sample.p_result) {
+                        sample.p_result = Number(sample.p_result).toFixed(2);
+                    }
+                    if (sample.lr_p_result) {
+                        sample.lr_p_result = Number(sample.lr_p_result).toFixed(2);
+                    }
+                    if (sample.hr_p_result) {
+                        sample.hr_p_result = Number(sample.hr_p_result).toFixed(2);
+                        this.hasHR = true;
+                    }
+                    if (sample.custom_r_p_result) {
+                        sample.custom_r_p_result = Number(
+                            sample.custom_r_p_result
+                        ).toFixed(2);
+                        this.hasCustomR = true;
+                    }
+                    if (sample.ph_result) {
+                        sample.ph_result = Number(sample.ph_result).toFixed(2);
+                    }
+                    if (sample.total_stableaggregates) {
+                        sample.total_stableaggregates = Number(
+                            sample.total_stableaggregates
+                        ).toFixed(1);
+                    }
+
+                    return sample;
+                });
+
+            })
+            .finally(() => this.loading = false)
+
         }
     };
 </script>
