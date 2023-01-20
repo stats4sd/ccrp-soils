@@ -37,7 +37,7 @@ class AnalysisAminoNExport implements FromCollection, WithHeadings, WithMapping,
     {
         $map = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $map[] = $analysis->sample->identifiers[$identifier['name']];
         }
         $map[] = $analysis->sample_id;
@@ -54,7 +54,7 @@ class AnalysisAminoNExport implements FromCollection, WithHeadings, WithMapping,
     {
         $headings = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $headings[] = $identifier['label'];
         }
 

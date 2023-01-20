@@ -38,7 +38,7 @@ class AnalysisPomExport implements FromCollection, WithHeadings, WithMapping, Wi
     {
         $map = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $map[] = $analysis->sample->identifiers[$identifier['name']];
         }
 
@@ -60,7 +60,7 @@ class AnalysisPomExport implements FromCollection, WithHeadings, WithMapping, Wi
 
         $headings = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $headings[] = $identifier['label'];
         }
 
