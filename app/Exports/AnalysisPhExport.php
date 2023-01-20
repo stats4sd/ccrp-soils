@@ -39,7 +39,7 @@ class AnalysisPhExport implements FromCollection, WithHeadings, WithMapping, Wit
 
         $map = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $map[] = $analysis->sample->identifiers[$identifier['name']];
         }
 
@@ -59,7 +59,7 @@ class AnalysisPhExport implements FromCollection, WithHeadings, WithMapping, Wit
     {
         $headings = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $headings[] = $identifier['label'];
         }
         $headings[] = 'sample_id';

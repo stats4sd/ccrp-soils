@@ -38,7 +38,7 @@ class SampleExport implements FromQuery, WithHeadings, WithMapping, WithTitle
 
         $map = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $map[] = $sample->identifiers[$identifier['name']];
         }
 
@@ -75,7 +75,7 @@ class SampleExport implements FromQuery, WithHeadings, WithMapping, WithTitle
     {
         $headings = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $headings[] = $identifier['label'];
         }
 
