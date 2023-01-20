@@ -38,7 +38,7 @@ class AnalysisPoxcExport implements FromCollection, WithHeadings, WithMapping, W
     {
         $map = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $map[] = $analysis->sample->identifiers[$identifier['name']];
         }
 
@@ -67,7 +67,7 @@ class AnalysisPoxcExport implements FromCollection, WithHeadings, WithMapping, W
 
         $headings = [];
 
-        foreach ($this->project->identifiers as $identifier) {
+        foreach ($this->project->identifiers ?? [] as $identifier) {
             $headings[] = $identifier['label'];
         }
 
