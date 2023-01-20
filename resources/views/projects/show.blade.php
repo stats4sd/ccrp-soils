@@ -61,9 +61,9 @@
             <a href="{{ route('projects.samples.download-wide', $project) }}" class="btn btn-success">{{ t("Download sample data in wide format") }}</a>
             <a href="{{ route('projects.samples.download-long', $project) }}" class="btn btn-success">{{ t("Download sample data in split format") }}</a>
             <project-data-table
+                :project-id="{{ $project->id }}"
                 :project-identifiers="{{ json_encode($project->identifiers) }}"
                 :user-id="{{ auth()->user()->id }}"
-                :samples="{{ $project->samples->toJson() }}"
             ></project-data-table>
         </div>
         <div class="tab-pane fade wide-table" id="nutrients" role="tabpanel" aria-labelledby="nutrients-tab">

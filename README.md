@@ -1,49 +1,38 @@
-# ccrp_soils_laravel
+# CCRP Soils Data Platform
 
-1. If you haven't run this locally since April2020, do a fresh migration (`php artisan migrate:fresh`) as a lot of little things have changed in the database.
+This soils platform is the result of a collaboration between the Soils and the Research Methods Support teams, a pair of cross-cutting projects from the Collaborative Crop Research Program (CCRP).
 
-2. On localhost, also run the database seeds (`php artisan db:seed`) to have an admin user created automatically with the following details:
-    Username: test@example.com
-    Password: password
+https://soils.stats4sd.org/
 
-3. See below for setting up / testing the Jobs and local notifications.
+# Development
+This platform is built using Laravel/PHP. The front-end is written in VueJS and the admin panel uses Backpack for Laravel.
 
+## Setup Local Environment
+1.	Clone repo: `git@github.com:stats4sd/ccrp-soils.git`
+2.	Copy `.env.example` as a new file and call it `.env`
+3.	Update variables in `.env` file to match your local environment:
+    1.	Check APP_URL is correct
+    2.	Update DB_DATABASE (name of the local MySQL database to use), DB_USERNAME (local MySQL username) and DB_PASSWORD (local MySQL password)
+    3.	If you need to test the Kobo link, make sure QUEUE_CONNECTION is set to `database` or `redis` (and that you have redis setup locally). Also add your test KOBO_USERNAME and KOBO_PASSWORD
+    4.	If you need to test real email sending, update the MAIL_MAILER to mailgun, and copy over the Stats4SD Mailgun keys from 1 Password
+4.	Create a local MySQL database with the same name used in the `.env` file
+6.	Run the following setup commands in the root project folder:
+```
+composer install
+php artisan key:generate
+php artisan backpack:install
+php artisan telescope:publish
+npm install
+npm run dev
+```
+7.	Migrate the database: `php aritsan migrate:fresh --seed` or copy from the staging site
 
-## Setup Development Environment
-
-1. Clone project
-2. `composer install && npm install`
-3. `cp .env.example .env`
-4. Update .env file with required details
-5. Include Stats4SD Development environment details:
-    - MAILGUN info
-
-6. `php artisan key:generate`
-7. `php artisan migrate:fresh --seed`
-8.  Publish telescope assets
-    `php artisan telescope:publish`
-9.  Install backpack
-
-    `composer require backpack/crud:"4.1.*"`
-
-    `composer require backpack/generators --dev`
-
-    `php artisan backpack:install`
-
-10. Install bootstrap
-
-    `npm install vue bootstrap bootstrap-vue`
-
-11. `npm run dev`
-
-
-### Run Laravel Websockets & Queues
+## Run Laravel Websockets & Queues
 To run the local notifications, start up Laravel Websockets locally: `php artisan websockets:serve`. This runs the websockets server on localhost port 6001.
 
 To test the job queue locally, run Horizon: `php artisan horizon`.
 
-
-### Add new analysis result to data download in wide format
+## Add New Analysis Result to Data Download - Wide Format
 Data download in wide format extracts data in one single sheet in excel file.<br/>
 It is achieved by extracting data from database view.
 
@@ -60,7 +49,7 @@ Then run artisan command generatedbviews to re-generate database views.
 
 `php artisan generatedbviews`
 
-### Add new analysis result to data download in split format
+## Add New Analysis Result to Data Download - Split Format
 Data download in split format extracts data in multiple sheets in excel file.<br/>
 Individual analysis result table is extracted as individual sheet in excel file.
 
