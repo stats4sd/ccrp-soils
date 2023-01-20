@@ -31,31 +31,44 @@ class AnalysisPhExport implements FromCollection, WithHeadings, WithMapping, Wit
     {
         return AnalysisPh::whereHas('sample', function (Builder $query) {
             $query->where('project_id', $this->project->id);
-        })->get();
+        })->with('sample')->get();
     }
 
     public function map($analysis): array
     {
-        return [
-            $analysis->sample_id,
-            $analysis->analysis_date,
-            $analysis->weight_soil,
-            $analysis->vol_water,
-            $analysis->reading_ph,
-            $analysis->stability,
-        ];
+
+        $map = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $map[] = $analysis->sample->identifiers[$identifier['name']];
+        }
+
+
+        $map[] = $analysis->sample_id;
+        $map[] = $analysis->analysis_date;
+        $map[] = $analysis->weight_soil;
+        $map[] = $analysis->vol_water;
+        $map[] = $analysis->reading_ph;
+        $map[] = $analysis->stability;
+
+        return $map;
     }
 
 
     public function headings(): array
     {
-        return [
-            'sample_id',
-            'analysis_date',
-            'weight_soil',
-            'vol_water',
-            'reading_ph',
-            'stability',
-        ];
+        $headings = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $headings[] = $identifier['label'];
+        }
+        $headings[] = 'sample_id';
+        $headings[] = 'analysis_date';
+        $headings[] = 'weight_soil';
+        $headings[] = 'vol_water';
+        $headings[] = 'reading_ph';
+        $headings[] = 'stability';
+
+        return $headings;
     }
 }
