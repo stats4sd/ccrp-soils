@@ -31,53 +31,62 @@ class AnalysisPoxcExport implements FromCollection, WithHeadings, WithMapping, W
     {
         return AnalysisPoxc::whereHas('sample', function (Builder $query) {
             $query->where('project_id', $this->project->id);
-        })->get();
+        })->with('sample')->get();
     }
 
     public function map($analysis): array
     {
-        return [
-            $analysis->sample_id,
-            $analysis->weight_soil,
-            $analysis->weight_cloth,
-            $analysis->weight_stones2mm,
-            $analysis->weight_2mm_aggreg,
-            $analysis->weight_cloth_250micron,
-            $analysis->weight_250micron_aggreg,
-            $analysis->pct_stones,
-            $analysis->twomm_aggreg_pct,
-            $analysis->twofiftymicr_aggreg_pct,
-            $analysis->twomm_aggreg_pct_result,
-            $analysis->twofiftymicron_aggreg_pct_result,
-            $analysis->percent_stones,
-            $analysis->total_stableaggregates,
-            $analysis->total_check,
-            $analysis->validation_check,
-            $analysis->analysis_date,
-        ];
+        $map = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $map[] = $analysis->sample->identifiers[$identifier['name']];
+        }
+
+        $map[] = $analysis->analysis_date;
+        $map[] = $analysis->sample_id;
+        $map[] = $analysis->weight_soil;
+        $map[] = $analysis->color;
+        $map[] = $analysis->color100;
+        $map[] = $analysis->conc_digest;
+        $map[] = $analysis->cloudy;
+        $map[] = $analysis->photo;
+        $map[] = $analysis->pct_reduction_color;
+        $map[] = $analysis->raw_conc;
+        $map[] = $analysis->poxc_sample;
+        $map[] = $analysis->poxc_soil;
+        $map[] = $analysis->correct_moisture;
+        $map[] = $analysis->moisture;
+        $map[] = $analysis->poxc_soil_corrected;
+
+        return $map;
     }
 
 
     public function headings(): array
     {
-        return [
-            'sample_id',
-            'weight_soil',
-            'weight_cloth',
-            'weight_stones2mm',
-            'weight_2mm_aggreg',
-            'weight_cloth_250micron',
-            'weight_250micron_aggreg',
-            'pct_stones',
-            'twomm_aggreg_pct',
-            'twofiftymicr_aggreg_pct',
-            'twomm_aggreg_pct_result',
-            'twofiftymicron_aggreg_pct_result',
-            'percent_stones',
-            'total_stableaggregates',
-            'total_check',
-            'validation_check',
-            'analysis_date',
-        ];
+
+        $headings = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $headings[] = $identifier['label'];
+        }
+
+        $headings[] = 'analysis_date';
+        $headings[] = 'sample_id';
+        $headings[] = 'weight_soil';
+        $headings[] = 'color';
+        $headings[] = 'color100';
+        $headings[] = 'conc_digest';
+        $headings[] = 'cloudy';
+        $headings[] = 'photo';
+        $headings[] = 'pct_reduction_color';
+        $headings[] = 'raw_conc';
+        $headings[] = 'poxc_sample';
+        $headings[] = 'poxc_soil';
+        $headings[] = 'correct_moisture';
+        $headings[] = 'moisture';
+        $headings[] = 'poxc_soil_corrected';
+
+        return $headings;
     }
 }

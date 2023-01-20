@@ -240,7 +240,7 @@ class Sample extends Model
     public function getTwommAggregPctResultAttribute()
     {
         if ($this->analysis_agg->count() > 0) {
-            return $this->analysis_agg->first()->twomm_aggreg_pct_result;
+            return round($this->analysis_agg()->first()->twomm_aggreg_pct_result, 1);
         }
 
         return null;
@@ -249,7 +249,7 @@ class Sample extends Model
     public function getTwofiftymicronAggregPctResultAttribute()
     {
         if ($this->analysis_agg->count() > 0) {
-            return $this->analysis_agg->first()->twofiftymicron_aggreg_pct_result;
+            return round($this->analysis_agg()->first()->twofiftymicron_aggreg_pct_result, 1);
         }
 
         return null;

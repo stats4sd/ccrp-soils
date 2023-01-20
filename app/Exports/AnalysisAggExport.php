@@ -30,53 +30,65 @@ class AnalysisAggExport implements FromCollection, WithHeadings, WithMapping, Wi
     {
         return AnalysisAgg::whereHas('sample', function (Builder $query) {
             $query->where('project_id', $this->project->id);
-        })->get();
+        })->with('sample')->get();
     }
 
     public function map($analysis): array
     {
-        return [
-            $analysis->sample_id,
-            $analysis->weight_soil,
-            $analysis->weight_cloth,
-            $analysis->weight_stones2mm,
-            $analysis->weight_2mm_aggreg,
-            $analysis->weight_cloth_250micron,
-            $analysis->weight_250micron_aggreg,
-            $analysis->pct_stones,
-            $analysis->twomm_aggreg_pct,
-            $analysis->twofiftymicr_aggreg_pct,
-            $analysis->twomm_aggreg_pct_result,
-            $analysis->twofiftymicron_aggreg_pct_result,
-            $analysis->percent_stones,
-            $analysis->total_stableaggregates,
-            $analysis->total_check,
-            $analysis->validation_check,
-            $analysis->analysis_date,
-        ];
+        $map = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $map[] = $analysis->sample->identifiers[$identifier['name']];
+        }
+
+        $map[] =  $analysis->sample_id;
+        $map[] =  $analysis->weight_soil;
+        $map[] =  $analysis->weight_cloth;
+        $map[] =  $analysis->weight_stones2mm;
+        $map[] =  $analysis->weight_2mm_aggreg;
+        $map[] =  $analysis->weight_cloth_250micron;
+        $map[] =  $analysis->weight_250micron_aggreg;
+        $map[] =  $analysis->pct_stones;
+        $map[] =  $analysis->twomm_aggreg_pct;
+        $map[] =  $analysis->twofiftymicr_aggreg_pct;
+        $map[] =  $analysis->twomm_aggreg_pct_result;
+        $map[] =  $analysis->twofiftymicron_aggreg_pct_result;
+        $map[] =  $analysis->percent_stones;
+        $map[] =  $analysis->total_stableaggregates;
+        $map[] =  $analysis->total_check;
+        $map[] =  $analysis->validation_check;
+        $map[] =  $analysis->analysis_date;
+
+        return $map;
     }
 
 
     public function headings(): array
     {
-        return [
-            'sample_id',
-            'weight_soil',
-            'weight_cloth',
-            'weight_stones2mm',
-            'weight_2mm_aggreg',
-            'weight_cloth_250micron',
-            'weight_250micron_aggreg',
-            'pct_stones',
-            'twomm_aggreg_pct',
-            'twofiftymicr_aggreg_pct',
-            'twomm_aggreg_pct_result',
-            'twofiftymicron_aggreg_pct_result',
-            'percent_stones',
-            'total_stableaggregates',
-            'total_check',
-            'validation_check',
-            'analysis_date',
-        ];
+        $headings = [];
+
+        foreach ($this->project->identifiers as $identifier) {
+            $headings[] = $identifier['label'];
+        }
+
+        $headings[] = 'sample_id';
+        $headings[] = 'weight_soil';
+        $headings[] = 'weight_cloth';
+        $headings[] = 'weight_stones2mm';
+        $headings[] = 'weight_2mm_aggreg';
+        $headings[] = 'weight_cloth_250micron';
+        $headings[] = 'weight_250micron_aggreg';
+        $headings[] = 'pct_stones';
+        $headings[] = 'twomm_aggreg_pct';
+        $headings[] = 'twofiftymicr_aggreg_pct';
+        $headings[] = 'twomm_aggreg_pct_result';
+        $headings[] = 'twofiftymicron_aggreg_pct_result';
+        $headings[] = 'percent_stones';
+        $headings[] = 'total_stableaggregates';
+        $headings[] = 'total_check';
+        $headings[] = 'validation_check';
+        $headings[] = 'analysis_date';
+
+        return $headings;
     }
 }
