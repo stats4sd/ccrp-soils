@@ -141,7 +141,7 @@
                 {{ t("As part of this platform, we would like to be able to use aggregated summaries to support broader research into soil quality in smallholder farms across the CCRP network and beyond. If you would like your project's data to contribute to this aggregation, please tick the box below.") }}
             </p>
             <p>
-                {{ t("The data will be suitably anonymised before sharing. Any instances where individual data points might be recognisable will be discussed with the project before being shared publically.") }}
+                {{ t("The data will be suitably anonymised before sharing. Any instances where individual data points might be recognisable will be discussed with the project before being shared publicly.") }}
             </p>
 
             <div class="form-group row">
