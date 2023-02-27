@@ -18,5 +18,31 @@ return [
     'Status'                    => 'Etat',
     'Action'                    => 'Action',
     'Get data from KoBoToolbox' => 'Obtenir les données à partir de KoBoToolbox',
-    'Num Submissions'           => 'No. Soumissions'
+    'Num Submissions'           => 'No. Soumissions',
+
+
+    'Undeployed' => 'Undeployed',
+    'Deployed' => 'Deployed',
+    'Uploaded' => 'Uploaded',
+    'Archived' => 'Archived',
+
+    'Deploy Form' => 'Deploy Form',
+
+    'p HR Value' => 'p HR Value',
+    'p Custom R Value' => 'p Custom R Value',
+
+    'POM Percent' => 'POM Percent',
+    'POM Percent Units' => '%',
+    'Amino N' => 'Amino N',
+    'Amino N Units' => 'Mg N/kg soil',
+    'POM Diameter' => 'POM Diameter',
+    'POM Diameter Units' => 'cm',
+
+    'No. Submissions' => 'No. Submissions',
+    'Show on KoBoToolbox' => 'Show on KoBoToolbox',
+    'Update to latest form' => 'Update to Latest Form',
+    'Re-deploy form' => 'Re-deploy Form',
+    'Archive form' => 'Archive Form',
+
+
 ];

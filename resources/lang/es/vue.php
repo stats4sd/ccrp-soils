@@ -24,8 +24,22 @@ return [
     'Archived'                  => 'Archivado',
     'Show on KoBoToolbox'       => 'Mostrar en KoBoToolbox',
     'Deploy Form'               => 'Publicar el formulario',
-    'Update to latest form'     => 'Refrescar con el formulario más reciente
-',
+    'Update to latest form'     => 'Refrescar con el formulario más reciente',
     'Re-deploy form'            => 'Re-publicar el formulario',
-    'Archive form'              => 'Archiver el formulario'
+    'Archive form'              => 'Archiver el formulario',
+
+
+    'p HR Value' => 'p HR Value',
+    'p Custom R Value' => 'p Custom R Value',
+
+    'POM Percent' => 'POM Percent',
+    'POM Percent Units' => '%',
+    'Amino N' => 'Amino N',
+    'Amino N Units' => 'Mg N/kg soil',
+    'POM Diameter' => 'POM Diameter',
+    'POM Diameter Units' => 'cm',
+
+    'No. Submissions' => 'No. Submissions',
+
+
 ];
