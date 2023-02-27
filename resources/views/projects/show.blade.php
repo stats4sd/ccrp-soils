@@ -52,18 +52,18 @@
                 <h4>{{t("Downloads")}}</h4>
                 <div class="alert alert-info">
                     {!!  app('commonmark')->convertToHtml(t("
-                    Two download options are available. Choose \"wide\" format to receive:
+Two download options are available. Choose \"wide\" format to receive:
 
-                    - A single worksheet containing 1 row per sample
-                    - Only the first analysis record entered for a specific sample
+- A single worksheet containing 1 row per sample
+- Only the first analysis record entered for a specific sample
 
-                    Choose \"split\" format to revceive:
+Choose \"split\" format to revceive:
 
-                    - One worksheet for sample data
-                    - One worksheet for each type of analysis
-                    - Each analysis record is linked to a sample via the sample_id column
-                    - If there is more than 1 analysis record for a specific sample, all the records will be shown.
-    ")) !!}
+- One worksheet for sample data
+- One worksheet for each type of analysis
+- Each analysis record is linked to a sample via the sample_id column
+- If there is more than 1 analysis record for a specific sample, all the records will be shown.
+")) !!}
 
                 </div>
                 <a href="{{ route('projects.samples.download-wide', $project) }}"
