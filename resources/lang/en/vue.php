@@ -33,10 +33,7 @@ return [
     'Stable Aggregates' => 'Stable Aggregates',
 
     'Total' => 'Total',
-    'Form Name' => 'Form Name',
     'No. Submissions' => 'No. Submissions',
-    'Status' => 'Status',
-    'Action' => 'Action',
     'Show on KoBoToolbox' => 'Show on KoBoToolbox',
     'Update to latest form' => 'Update to Latest Form',
     'Re-deploy form' => 'Re-deploy Form',
