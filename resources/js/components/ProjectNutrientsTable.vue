@@ -5,14 +5,67 @@
             <b-table
                 :items="nutrientBalances"
                 :fields="nutrientColumns"
-
-            ></b-table>
+            >
+            <template #head(farmer_field_id)=item>
+                {{ __('vue.farmer_field_id') }}
+            </template>
+            <template #head(farmer_field.country_id)=item>
+                {{ __('vue.country') }}
+            </template>
+            <template #head(farmer_field.village_community)=item>
+                {{ __('vue.village') }}
+            </template>
+            <template #head(farmer_field.farmer_name)=item>
+                {{ __('vue.farmer') }}
+            </template>
+            <template #head(year)=item>
+                {{  __('vue.year') }}
+            </template>,
+            <template #head(tot_org_Ninput)=item>
+                {{  __('vue.tot_org_Ninput') }}
+            </template>,
+            <template #head(tot_org_Pinput)=item>
+                {{  __('vue.tot_org_Pinput') }}
+            </template>,
+            <template #head(tot_org_Kinput)=item>
+                {{  __('vue.tot_org_Kinput') }}
+            </template>,
+            <template #head(tot_inorg_Ninput)=item>
+                {{  __('vue.tot_inorg_Ninput') }}
+            </template>,
+            <template #head(tot_inorg_Pinput)=item>
+                {{  __('vue.tot_inorg_Pinput') }}
+            </template>,
+            <template #head(tot_inorg_Kinput)=item>
+                {{  __('vue.tot_inorg_Kinput') }}
+            </template>,
+            <template #head(Total_cropNexport)=item>
+                {{  __('vue.Total_cropNexport') }}
+            </template>,
+            <template #head(Total_cropPexport)=item>
+                {{  __('vue.Total_cropPexport') }}
+            </template>,
+            <template #head(Total_cropKexport)=item>
+                {{  __('vue.Total_cropKexport') }}
+            </template>,
+            <template #head(balance_N)=item>
+                {{  __('vue.balance_N') }}
+            </template>,
+            <template #head(balance_P)=item>
+                {{  __('vue.balance_P') }}
+            </template>,
+            <template #head(balance_K)=item>
+                {{  __('vue.balance_K') }}
+            </template>,
+            </b-table>
 
         </div>
     </div>
 </div>
 </template>
 <script>
+
+import __ from "../trans.js"
 export default {
     props: ['projectId'],
 
@@ -20,22 +73,22 @@ export default {
         return {
             samplesDisplay: [],
             hasHR: false,
-            hasCustomR: false, 
+            hasCustomR: false,
             nutrientBalances: [],
             nutrientColumns: [
                 'farmer_field_id',
                 {
                     key: 'farmer_field.country_id',
-                    label: 'Country',
+                    label: "country",
                 },
 
                 {
                     key: 'farmer_field.village_community',
-                    label: 'Village',
+                    label: "village",
                 },
                 {
                     key: 'farmer_field.farmer_name',
-                    label: 'farmer',
+                    label: "farmer",
                 },
                 'year',
                 'tot_org_Ninput',
@@ -54,7 +107,7 @@ export default {
         }
     },
     mounted: function(){
-        axios.get(`/nutrientbalance/${this.projectId}/json`) 
+        axios.get(`/nutrientbalance/${this.projectId}/json`)
         .then((res) => {
             this.nutrientBalances = res.data;
         })

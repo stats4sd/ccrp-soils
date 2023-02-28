@@ -4,5 +4,5 @@ return [
     'reset'    => 'Votre mot de passe a été réinitialisé!',
     'sent'     => 'Nous avons envoyé un lien pour réinitialiser votre mot de passe par e-mail!',
     'token'    => 'Cette clé de réinitialisation de mot de passe n\'est pas valide.',
-    'user'     => 'Nous ne pouvons pas trouver un utilisateur avec cette adresse e-mail.'
+    'user'     => 'Nous ne pouvons pas trouver un utilisateur avec cette adresse e-mail.',
 ];

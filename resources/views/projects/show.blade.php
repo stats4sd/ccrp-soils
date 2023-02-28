@@ -80,7 +80,7 @@ Choose \"split\" format to revceive:
                 <a href="{{ route('projects.nutrients.download', $project) }}"
                    class="btn btn-success">{{ t("Download nutrients data") }}</a>
                 <p></p>
-                <p>Note: Press [Shift] + mouse wheel to scroll horizontally</p>
+                <p>{{ t("Note: Press [Shift] + mouse wheel to scroll horizontally") }}</p>
                 <project-nutrients-table
                     :project-id="{{ $project->id }}"
                     :user-id="{{ auth()->user()->id }}">
