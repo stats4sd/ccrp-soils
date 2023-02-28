@@ -1,20 +1,20 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CCRP Soils Platform\n"
+"Project-Id-Version: Soils Data Platform\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-12T13:29:53+00:00\n"
-"PO-Revision-Date: 2021-01-12 14:29+0100\n"
+"POT-Creation-Date: 2023-02-28T16:14:27+00:00\n"
+"PO-Revision-Date: 2023-02-28 17:14+0100\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
 #: app/Rules/KoboUsernameIsValid.php:57
 msgid "That username cannot be found on kf.kobotoolbox.org. Please use an active username. If you do not have a Kobotoolbox account, leave the field empty."
-msgstr ""
+msgstr "Ce nom d'utilisateur est introuvable sur kf.kobotoolbox.org. Veuillez utiliser un nom d'utilisateur actif. Si vous n'avez pas de compte Kobotoolbox, laissez le champ vide."
 
 #: resources/views/about.blade.php:2
 #: resources/views/layouts/header.blade.php:16
@@ -93,7 +93,7 @@ msgstr "Identifiant"
 #: resources/views/auth/passwords/reset.blade.php:15
 #: resources/views/auth/register.blade.php:50
 msgid "E-Mail Address"
-msgstr ""
+msgstr "Courrier électronique"
 
 #: resources/views/auth/login.blade.php:41
 #: resources/views/auth/passwords/confirm.blade.php:16
@@ -105,41 +105,41 @@ msgstr "Mot de passe"
 
 #: resources/views/auth/login.blade.php:74
 msgid "Remember Me"
-msgstr ""
+msgstr "Mémoriser mes informations"
 
 #: resources/views/auth/login.blade.php:90
 #: resources/views/auth/passwords/confirm.blade.php:52
 msgid "Forgot Your Password?"
-msgstr ""
+msgstr "Mot de passe oublié?"
 
 #: resources/views/auth/login.blade.php:104
 msgid "Don't have an account?"
-msgstr ""
+msgstr "Vous n'avez pas de compte ?"
 
 #: resources/views/auth/login.blade.php:109
 msgid "Register here"
-msgstr ""
+msgstr "S'inscrire"
 
 #: resources/views/auth/passwords/confirm.blade.php:6
 #: resources/views/auth/passwords/confirm.blade.php:46
 #: resources/views/auth/passwords/reset.blade.php:71
 #: resources/views/auth/register.blade.php:113
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirmez le mot de passe"
 
 #: resources/views/auth/passwords/confirm.blade.php:9
 msgid "Please confirm your password before continuing."
-msgstr ""
+msgstr "Veuillez confirmer votre mot de passe avant de continuer."
 
 #: resources/views/auth/passwords/email.blade.php:6
 #: resources/views/auth/passwords/reset.blade.php:6
 #: resources/views/auth/passwords/reset.blade.php:81
 msgid "Reset Password"
-msgstr ""
+msgstr "réinitialiser le mot de passe"
 
 #: resources/views/auth/passwords/email.blade.php:50
 msgid "Send Password Reset Link"
-msgstr ""
+msgstr "Envoyer le lien de réinitialisation du mot de passe"
 
 #: resources/views/auth/register.blade.php:6
 msgid "Create an Account"
@@ -178,23 +178,23 @@ msgstr "S'inscrire"
 
 #: resources/views/auth/verify.blade.php:6
 msgid "Verify Your Email Address"
-msgstr ""
+msgstr "Vérifiez votre adresse e-mail"
 
 #: resources/views/auth/verify.blade.php:11
 msgid "A fresh verification link has been sent to your email address."
-msgstr ""
+msgstr "Un nouveau lien de vérification a été envoyé à votre adresse e-mail."
 
 #: resources/views/auth/verify.blade.php:16
 msgid "Before proceeding, please check your email for a verification link."
-msgstr ""
+msgstr "Avant de continuer, veuillez vérifier votre e-mail pour un lien de vérification."
 
 #: resources/views/auth/verify.blade.php:18
 msgid "If you did not receive the email"
-msgstr ""
+msgstr "Si vous n'avez pas reçu l'e-mail"
 
 #: resources/views/auth/verify.blade.php:18
 msgid "click here to request another"
-msgstr ""
+msgstr "cliquez ici pour en demander un autre"
 
 #: resources/views/contact.blade.php:4
 #: resources/views/contact.blade.php:47
@@ -230,6 +230,7 @@ msgstr "Ecrivez votre message"
 
 #: resources/views/downloads.blade.php:4
 #: resources/views/layouts/header.blade.php:22
+#: resources/views/projects/show.blade.php:52
 msgid "Downloads"
 msgstr "Téléchargements"
 
@@ -348,7 +349,7 @@ msgstr "Codes QR"
 
 #: resources/views/layouts/header.blade.php:26
 msgid "Change language"
-msgstr ""
+msgstr "Changer de langue"
 
 #: resources/views/layouts/header.blade.php:62
 msgid "Admin Panel"
@@ -380,11 +381,11 @@ msgstr "Saisissez les adresses e-mail auxquelles envoyer les invitations. Vous p
 
 #: resources/views/project_members/create.blade.php:89
 msgid "Press"
-msgstr ""
+msgstr "Appuyer"
 
 #: resources/views/project_members/create.blade.php:89
 msgid " for another field"
-msgstr ""
+msgstr "pour un autre domaine"
 
 #: resources/views/project_members/edit.blade.php:12
 msgid "Edit Access to Project :projectName"
@@ -423,41 +424,40 @@ msgstr "Ajouter une image pour représenter le projet"
 #: resources/views/projects/create.blade.php:139
 #: resources/views/projects/tab-settings.blade.php:118
 msgid "Do you need Olsen P Analysis Outputs split between LR and HR?"
-msgstr ""
+msgstr "Avez-vous besoin de sorties d'analyse Olsen P réparties entre Gamme bas et Gamme haute ?"
 
 #: resources/views/projects/create.blade.php:157
 #: resources/views/projects/create.blade.php:204
 #: resources/views/projects/tab-settings.blade.php:138
 #: resources/views/projects/tab-settings.blade.php:188
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: resources/views/projects/create.blade.php:178
 #: resources/views/projects/create.blade.php:225
 #: resources/views/projects/tab-settings.blade.php:161
 #: resources/views/projects/tab-settings.blade.php:210
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: resources/views/projects/create.blade.php:186
 #: resources/views/projects/tab-settings.blade.php:169
 msgid "Do you need additional Olsen P Analysis Output columns for Custom Reagent packs?"
-msgstr ""
+msgstr "Avez-vous besoin de colonnes Olsen P Analysis Output supplémentaires pour les packs de réactifs personnalisés ?"
 
 #: resources/views/projects/create.blade.php:233
 #: resources/views/projects/tab-settings.blade.php:218
 msgid "Project Privacy Settings"
-msgstr ""
+msgstr "Paramètres de confidentialité du projet"
 
 #: resources/views/projects/create.blade.php:235
 #: resources/views/projects/tab-settings.blade.php:220
 msgid "As part of this platform, we would like to be able to use aggregated summaries to support broader research into soil quality in smallholder farms across the CCRP network and beyond. If you would like your project's data to contribute to this aggregation, please tick the box below."
-msgstr ""
+msgstr "Dans le cadre de cette plateforme, nous aimerions pouvoir utiliser des résumés agrégés pour soutenir une recherche plus large sur la qualité des sols dans les petites exploitations agricoles à travers le réseau CCRP et au-delà. Si vous souhaitez que les données de votre projet contribuent à cette agrégation, veuillez cocher la case ci-dessous."
 
 #: resources/views/projects/create.blade.php:239
-#: resources/views/projects/tab-settings.blade.php:224
 msgid "The data will be suitably anonymised before sharing. Any instances where individual data points might be recognisable will be discussed with the project before being shared publically."
-msgstr ""
+msgstr "Les données seront anonymisées avant d'être partagées. Tous les cas où des points de données individuels pourraient être reconnaissables seront discutés avec le projet avant d'être partagés publiquement."
 
 #: resources/views/projects/create.blade.php:245
 msgid "Data Sharing"
@@ -489,37 +489,81 @@ msgstr "Admins"
 msgid "Projects on the Platform"
 msgstr "Projets sur la plateforme"
 
-#: resources/views/projects/show.blade.php:10
+#: resources/views/projects/show.blade.php:11
 msgid "Data Collection Forms"
 msgstr "Formulaires de collecte de données"
 
-#: resources/views/projects/show.blade.php:13
+#: resources/views/projects/show.blade.php:15
 msgid "Project Data"
 msgstr "Données du projet"
 
-#: resources/views/projects/show.blade.php:16
+#: resources/views/projects/show.blade.php:19
+msgid "Project Nutrients Data"
+msgstr "Données du projet sur les éléments nutritifs"
+
+#: resources/views/projects/show.blade.php:23
 msgid "Project Members"
 msgstr "Membres du projet"
 
-#: resources/views/projects/show.blade.php:19
+#: resources/views/projects/show.blade.php:27
 msgid "Project Settings"
 msgstr "Paramètres du projet"
 
-#: resources/views/projects/show.blade.php:29
+#: resources/views/projects/show.blade.php:37
 msgid "Note - you have not entered your KoboToolbox Username, which means you will not be able to see these formson KoboToolbox or ODK Collect. You can update your account here:"
 msgstr "Remarque - vous n'avez pas entré votre nom d'utilisateur KoboToolbox, ce qui signifie que vous ne pourrez pas voir ces formulaires KoboToolbox ou ODK Collect. Vous pouvez mettre à jour votre compte ici:"
 
-#: resources/views/projects/show.blade.php:29
+#: resources/views/projects/show.blade.php:39
 msgid "My Account"
 msgstr "Mon compte"
 
-#: resources/views/projects/show.blade.php:30
+#: resources/views/projects/show.blade.php:40
 msgid "You still have access to all the data collected with these forms."
 msgstr "Vous avez toujours accès à toutes les données collectées avec ces formulaires."
 
-#: resources/views/projects/show.blade.php:47
-msgid "Download Merged Sample Data"
-msgstr "Télécharger les données échantillon fusionnées"
+#: resources/views/projects/show.blade.php:54
+msgid ""
+"\n"
+"Two download options are available. Choose \"wide\" format to receive:\n"
+"\n"
+"- A single worksheet containing 1 row per sample\n"
+"- Only the first analysis record entered for a specific sample\n"
+"\n"
+"Choose \"split\" format to revceive:\n"
+"\n"
+"- One worksheet for sample data\n"
+"- One worksheet for each type of analysis\n"
+"- Each analysis record is linked to a sample via the sample_id column\n"
+"- If there is more than 1 analysis record for a specific sample, all the records will be shown.\n"
+""
+msgstr ""
+"Deux options de téléchargement sont disponibles. Choisissez le format « large » pour recevoir : \n"
+"\n"
+"- Une seule feuille de calcul contenant 1 ligne par échantillon \n"
+"- Uniquement le premier enregistrement d'analyse saisi pour un échantillon spécifique \n"
+"\n"
+"Choisissez le format « fractionné » pour recevoir : \n"
+"\n"
+"- Une feuille de calcul pour les données d'échantillon \n"
+"- Une feuille de calcul pour chaque type d'analyse \n"
+"- Chaque enregistrement d'analyse est lié à un échantillon via la colonne sample_id \n"
+"- S'il y a plus d'un enregistrement d'analyse pour un échantillon spécifique, tous les enregistrements seront affichés."
+
+#: resources/views/projects/show.blade.php:71
+msgid "Download sample data in wide format"
+msgstr "Télécharger les données au format 'large'"
+
+#: resources/views/projects/show.blade.php:73
+msgid "Download sample data in split format"
+msgstr "Télécharger les données au format 'split'"
+
+#: resources/views/projects/show.blade.php:82
+msgid "Download nutrients data"
+msgstr "Télécharger les données sur les nutriments"
+
+#: resources/views/projects/show.blade.php:84
+msgid "Note: Press [Shift] + mouse wheel to scroll horizontally"
+msgstr "Appuyez sur [Maj] + molette de la souris pour faire défiler horizontalement"
 
 #: resources/views/projects/tab-members.blade.php:5
 msgid "Avatar"
@@ -573,9 +617,13 @@ msgstr "Modifier les renseignements liés au projet"
 msgid "Replace the project image"
 msgstr "Remplacez l'image du projet"
 
+#: resources/views/projects/tab-settings.blade.php:224
+msgid "The data will be suitably anonymised before sharing. Any instances where individual data points might be recognisable will be discussed with the project before being shared publicly."
+msgstr "Les données seront anonymisées avant d'être partagées. Tous les cas où des points de données individuels pourraient être reconnaissables seront discutés avec le projet avant d'être partagés publiquement."
+
 #: resources/views/projects/tab-settings.blade.php:289
 msgid "You do not have access to update the project settings. Please contact a project administrator"
-msgstr ""
+msgstr "Vous n'êtes pas autorisé à mettre à jour les paramètres du projet. Veuillez contacter un administrateur de projet"
 
 #: resources/views/qr_code.blade.php:5
 msgid "Generate QR Codes"
@@ -591,7 +639,7 @@ msgstr "Cliquez sur le bouton ci-dessous pour générer une feuille d'exemples d
 
 #: resources/views/qr_code.blade.php:18
 msgid "Enter the prefix to use for the codes"
-msgstr ""
+msgstr "Entrez le préfixe à utiliser pour les codes"
 
 #: resources/views/qr_code.blade.php:26
 msgid "How many QR codes do you need?"
@@ -603,15 +651,15 @@ msgstr "Les codes QR seront répartis sur plusieurs pages si nécessaire"
 
 #: resources/views/qr_code.blade.php:35
 msgid "Select the number of labels per sheet."
-msgstr ""
+msgstr "Sélectionnez le nombre d'étiquettes par feuille."
 
 #: resources/views/qr_code.blade.php:39
 msgid "21 Labels"
-msgstr ""
+msgstr "21 étiquettes"
 
 #: resources/views/qr_code.blade.php:45
 msgid "14 Labels"
-msgstr ""
+msgstr "14 étiquettes"
 
 #: resources/views/qr_code.blade.php:55
 msgid "GENERATE CODE SHEET FOR PRINTING"
@@ -620,19 +668,19 @@ msgstr "GÉNÉRER UNE FEUILLE DE CODE A IMPRIMER"
 #: resources/views/users/projects.blade.php:20
 #: resources/views/users/projects.blade.php:35
 msgid "Create a new project"
-msgstr ""
+msgstr "Créer un nouveau projet"
 
 #: resources/views/users/projects.blade.php:28
 msgid "It looks like you are not a member of any projects. To use the platform, you can either find your existing CCRP project, or create it:"
-msgstr ""
+msgstr "Il semble que vous ne soyez membre d'aucun projet. Pour utiliser la plateforme, vous pouvez soit retrouver votre projet CCRP existant, soit le créer :"
 
 #: resources/views/users/projects.blade.php:32
 msgid "Check if your CCRP Project is already on the platform"
-msgstr ""
+msgstr "Vérifiez si votre projet CCRP est déjà sur la plateforme"
 
 #: resources/views/users/projects.blade.php:40
 msgid "User is not a member of any projects"
-msgstr ""
+msgstr "L'utilisateur n'est membre d'aucun projet"
 
 #: resources/views/users/show.blade.php:28
 msgid "Kobotoolbox Account:"
@@ -649,6 +697,14 @@ msgstr "Email:"
 #: resources/views/users/show.blade.php:51
 msgid "Created:"
 msgstr "Créé:"
+
+#: resources/views/users/show.blade.php:60
+msgid "Edit Details"
+msgstr "Modifier les détails"
+
+#: resources/views/users/show.blade.php:64
+msgid "Change Your Password"
+msgstr "Mot de passe"
 
 #: resources/views/vendor/backpack/base/inc/alerts.blade.php:30
 #: resources/views/vendor/backpack/base/inc/alerts.blade.php:68
@@ -689,7 +745,7 @@ msgstr "Cette erreur peut indiquer des erreurs dans le formulaire XLSX."
 
 #: resources/views/vendor/backpack/base/inc/alerts.blade.php:88
 msgid "Submissions could not be retrieves from the form. An error was returned"
-msgstr ""
+msgstr "Les soumissions n'ont pas pu être extraites du formulaire. Une erreur a été renvoyée"
 
 #: resources/views/vendor/backpack/base/inc/alerts.blade.php:100
 msgid "The form has been successfully archived on Kobotools, and is no longer available for data collection"
