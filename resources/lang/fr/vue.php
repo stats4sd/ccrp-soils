@@ -44,5 +44,10 @@ return [
     'Re-deploy form' => 'Re-deploy Form',
     'Archive form' => 'Archive Form',
 
+    'country' => 'pays',
+    'village' => 'village',
+    'farmer' => 'agriculteur',
+    'year' => 'année',
+
 
 ];

@@ -53,10 +53,10 @@
 				</div>
                 @can('update', $user)
                     <a href=" {{ route('users.edit', $user->slug) }}" class="btn btn-primary">
-                        Edit Details
+                        {{ t("Edit Details") }}
                     </a>
                     <a href=" {{ route('users.password.edit', $user->slug) }}" class="btn btn-primary">
-                        Change Your Password
+                        {{ t("Change Your Password") }}
                     </a>
                 @endcan
 			</div>

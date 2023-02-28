@@ -13,6 +13,8 @@
 </div>
 </template>
 <script>
+
+import __ from "../trans.js"
 export default {
     props: ['projectId'],
 
@@ -20,24 +22,24 @@ export default {
         return {
             samplesDisplay: [],
             hasHR: false,
-            hasCustomR: false, 
+            hasCustomR: false,
             nutrientBalances: [],
             nutrientColumns: [
                 'farmer_field_id',
                 {
                     key: 'farmer_field.country_id',
-                    label: 'Country',
+                    label: __("vue.country"),
                 },
 
                 {
                     key: 'farmer_field.village_community',
-                    label: 'Village',
+                    label: __("vue.village"),
                 },
                 {
                     key: 'farmer_field.farmer_name',
-                    label: 'farmer',
+                    label: __("vue.farmer"),
                 },
-                'year',
+                __("vue.year"),
                 'tot_org_Ninput',
                 'tot_org_Pinput',
                 'tot_org_Kinput',
@@ -54,7 +56,7 @@ export default {
         }
     },
     mounted: function(){
-        axios.get(`/nutrientbalance/${this.projectId}/json`) 
+        axios.get(`/nutrientbalance/${this.projectId}/json`)
         .then((res) => {
             this.nutrientBalances = res.data;
         })

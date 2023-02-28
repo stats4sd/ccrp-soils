@@ -41,5 +41,10 @@ return [
 
     'No. Submissions' => 'No. Submissions',
 
+    'country' => 'Country',
+    'village' => 'village',
+    'farmer' => 'farmer',
+    'year' => 'year',
+
 
 ];

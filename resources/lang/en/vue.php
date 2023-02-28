@@ -40,5 +40,11 @@ return [
     'Archive form' => 'Archive Form',
     'Get data from KoBoToolbox' => 'Get data from KoBoToolbox',
 
+    'country' => 'Country',
+    'village' => 'village',
+    'farmer' => 'farmer',
+    'year' => 'year',
+
+
 
 ];
