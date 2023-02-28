@@ -1,5 +1,5 @@
 <?php
 return [
     'previous' => '&laquo; précédent',
-    'next'     => 'Suivant &raquo;'
+    'next'     => 'Suivant &raquo;',
 ];

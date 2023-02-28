@@ -7,12 +7,11 @@ return [
     'p Value'                   => 'valor de p',
     'P Units'                   => 'mg P/Kg de suelo',
     'pH Value'                  => 'valor del pH',
-    'POM Value'                 => 'Valor de POM',
     'Stable Aggregates'         => 'Agregados estables',
     'Total'                     => 'Total',
     'Form Name'                 => 'Nombre del formulario',
     'No'                        => [
-        ' Submissions' => 'Número de entregas'
+        ' Submissions' => 'Número de entregas',
     ],
     'Status'                    => 'Estado',
     'Action'                    => 'Acción',
@@ -24,27 +23,17 @@ return [
     'Archived'                  => 'Archivado',
     'Show on KoBoToolbox'       => 'Mostrar en KoBoToolbox',
     'Deploy Form'               => 'Publicar el formulario',
-    'Update to latest form'     => 'Refrescar con el formulario más reciente',
+    'Update to latest form'     => 'Refrescar con el formulario más reciente
+',
     'Re-deploy form'            => 'Re-publicar el formulario',
     'Archive form'              => 'Archiver el formulario',
-
-
-    'p HR Value' => 'p HR Value',
-    'p Custom R Value' => 'p Custom R Value',
-
-    'POM Percent' => 'POM Percent',
-    'POM Percent Units' => '%',
-    'Amino N' => 'Amino N',
-    'Amino N Units' => 'Mg N/kg soil',
-    'POM Diameter' => 'POM Diameter',
-    'POM Diameter Units' => 'cm',
-
-    'No. Submissions' => 'No. Submissions',
-
-    'country' => 'Country',
-    'village' => 'village',
-    'farmer' => 'farmer',
-    'year' => 'year',
-
-
+    'p HR Value'                => 'valor de p',
+    'p Custom R Value'          => 'p Valor R personalizado',
+    'POM Diameter'              => 'Diámetro de POM',
+    'POM Percent'               => 'POM Porcentaje',
+    'POM Percent Units'         => '%',
+    'POM Diameter Units'        => 'cm',
+    'Amino N'                   => 'Amino N',
+    'Amino N Units'             => 'Mg N/kg de suelo',
+    'country'                   => 'País',
 ];
