@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MakeNullablesSamplesTable extends Migration
+class AddErosionToNutrientBalancesTable extends Migration
 {
     /**
      * Run the migrations.
