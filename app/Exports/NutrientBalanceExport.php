@@ -25,10 +25,9 @@ class NutrientBalanceExport implements FromQuery, WithHeadings, WithMapping, Wit
     }
 
 
-
     /**
-    * @return \Illuminate\Support\Query
-    */
+     * @return \Illuminate\Support\Query
+     */
     public function query()
     {
         return NutrientBalance::where('project_id', $this->project->id);
@@ -44,6 +43,11 @@ class NutrientBalanceExport implements FromQuery, WithHeadings, WithMapping, Wit
             $farmerField->village_community,
             $farmerField->farmer_name,
             $record->year,
+            $record->erosion_level,
+            $record->erosion_amt_Tha,
+            $record->erosionNloss_kgHa,
+            $record->erosionPloss_kgHa,
+            $record->erosionKloss_kgHa,
             $record->tot_org_Ninput,
             $record->tot_org_Pinput,
             $record->tot_org_Kinput,
@@ -55,7 +59,7 @@ class NutrientBalanceExport implements FromQuery, WithHeadings, WithMapping, Wit
             $record->Total_cropKexport,
             $record->balance_N,
             $record->balance_P,
-            $record->balance_K,            
+            $record->balance_K,
         ];
     }
 
@@ -68,6 +72,11 @@ class NutrientBalanceExport implements FromQuery, WithHeadings, WithMapping, Wit
             'village',
             'farmer',
             'year',
+            'erosion_level',
+            'erosion_amt_Tha',
+            'erosionNloss_kgHa',
+            'erosionPloss_kgHa',
+            'erosionKloss_kgHa',
             'tot_org_Ninput',
             'tot_org_Pinput',
             'tot_org_Kinput',
