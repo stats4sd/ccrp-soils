@@ -16,7 +16,6 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^7.0",
         "laravel/helpers": "^1.2",
-        "laravel/horizon": "^4.0",
         "laravel/telescope": "^3.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
@@ -27,7 +26,7 @@
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "~4.0",
         "simplesoftwareio/simple-qrcode": "^2.0",
-        "stats4sd/laravel-sql-views": "dev-master",
+        "stats4sd/laravel-sql-views": "1.0",
         "symfony/process": "^5.0",
         "tio/laravel": "^1.6"
     },
