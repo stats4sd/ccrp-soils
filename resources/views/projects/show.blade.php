@@ -18,7 +18,7 @@
             </li>
             <li class="nav-item">
                 <a href="#nutrients" class="nav-link" id="nutrients-tab" data-toggle="tab" role="tab"
-                   aria-controls="nutrients" aria-selected="true">{{ t("Project Nutrients Data") }}</a>
+                   aria-controls="nutrients" aria-selected="true">{{ t("Project Nutrient Balance Data") }}</a>
             </li>
             <li class="nav-item">
                 <a href="#members" class="nav-link" id="members-tab" data-toggle="tab" role="tab"
