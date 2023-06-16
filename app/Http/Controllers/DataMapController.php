@@ -198,12 +198,12 @@ class DataMapController extends Controller
 
 
     // handle array for repeated group
-    public static function handleRepeat($repeatData, $projectId, $farmerFieldId)
+    public static function handleRepeat($repeatData, $projectId, $farmerFieldId, $currentYear)
     {
         foreach ($repeatData as $repeat) {
             // TODO: need to check with Steve Vanek for how to calculate year
             // as a temporary workaround, just assume we still use an_4,3,2,1 to represent year 2020,2019,2018,2017 first
-            $year = 2021 - $repeat['crop_repeat_group/year_pos'];
+            $year = $currentYear - $repeat['crop_repeat_group/year_pos'];
 
             NutrientBalance::create([
                 'project_id' => $projectId,
@@ -223,7 +223,7 @@ class DataMapController extends Controller
                 'Total_cropNexport' => $repeat['crop_repeat_group/Total_cropNexport_anX'] ?? null,
                 'Total_cropPexport' => $repeat['crop_repeat_group/Total_cropPexport_anX'] ?? null,
                 'Total_cropKexport' => $repeat['crop_repeat_group/Total_cropKexport_anX'] ?? null,
-                'balance_N' => $repeat['crop_repeat_group/balance_N_anX'] ?? null,  
+                'balance_N' => $repeat['crop_repeat_group/balance_N_anX'] ?? null,
                 'balance_P' => $repeat['crop_repeat_group/balance_P_anX'] ?? null,
                 'balance_K' => $repeat['crop_repeat_group/balance_K_anX'] ?? null,
             ]);
@@ -249,8 +249,10 @@ class DataMapController extends Controller
         if (isset($data['crop_repeat_group'])) {
             // to support new ODK form
 
-            // handle repeat group "crop_repeat_group"
-            DataMapController::handleRepeat($data['crop_repeat_group'], $projectId, $farmerField->id);
+            $currentYear = $data['start_time'] ? Str::before($data['start_time'], '-') : Carbon::now()->year;
+
+            // handle repeat group "crop_repeat_group",
+            DataMapController::handleRepeat($data['crop_repeat_group'], $projectId, $farmerField->id, $currentYear);
 
         } else {
             // to support old ODK form
@@ -275,7 +277,7 @@ class DataMapController extends Controller
                 'Total_cropNexport' => $data['Total_cropNexport_an4'] ?? null,
                 'Total_cropPexport' => $data['Total_cropPexport_an4'] ?? null,
                 'Total_cropKexport' => $data['Total_cropKexport_an4'] ?? null,
-                'balance_N' => $data['balance_N_an4'] ?? null,  
+                'balance_N' => $data['balance_N_an4'] ?? null,
                 'balance_P' => $data['balance_P_an4'] ?? null,
                 'balance_K' => $data['balance_K_an4'] ?? null,
             ]);
