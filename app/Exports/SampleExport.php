@@ -52,6 +52,7 @@ class SampleExport implements FromQuery, WithHeadings, WithMapping, WithTitle
         $map[] = $sample->accuracy;
         $map[] = $sample->plot_photo;
         $map[] = $sample->comment;
+        $map[] = $sample->soil_texture;
         $map[] = $sample->simple_texture;
         $map[] = $sample->ball_yn;
         $map[] = $sample->ribbon_yn;
@@ -90,6 +91,7 @@ class SampleExport implements FromQuery, WithHeadings, WithMapping, WithTitle
         $headings[] = 'accuracy';
         $headings[] = 'plot_photo';
         $headings[] = 'comment';
+        $headings[] = 'soil_texture';
         $headings[] = 'simple_texture';
         $headings[] = 'ball_yn';
         $headings[] = 'ribbon_yn';
@@ -104,6 +106,7 @@ class SampleExport implements FromQuery, WithHeadings, WithMapping, WithTitle
         $headings[] = 'soil_circle_choice';
         $headings[] = 'final_texture_type_fao';
         $headings[] = 'second_texture_type_fao';
+        
         return $headings;
     }
 }
