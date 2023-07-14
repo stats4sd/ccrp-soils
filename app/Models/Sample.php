@@ -100,6 +100,7 @@ class Sample extends Model
         'total_stableaggregates',
         'twomm_aggreg_pct_result',
         'twofiftymicron_aggreg_pct_result',
+        'soil_texture',
     ];
 
     public function project()
@@ -112,6 +113,18 @@ class Sample extends Model
         return $this->belongsTo(ProjectSubmission::class);
     }
 
+    public function getSoilTextureAttribute()
+    {
+        if ($this->final_texture_type_usda != null || $this->second_texture_type_usda != null) {
+            return $this->final_texture_type_usda . ',' . $this->second_texture_type_usda;
+        } else if ($this->final_texture_type_fao != null || $this->second_texture_type_fao != null) {
+            return $this->final_texture_type_fao . ',' . $this->second_texture_type_fao;
+        } else if ($this->simple_texture != null) {
+            return $this->simple_texture;
+        } else {
+            return "NOT YET RATED";
+        }
+    }
 
     public function getPoxcResultAttribute()
     {

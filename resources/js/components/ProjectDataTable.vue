@@ -16,7 +16,10 @@
                         {{ identifier.label }}
                     </th>
 
-
+                    <th rowspan="2">
+                        Soil texture
+                    </th>
+                    
                     <th rowspan="2">
                         {{ __("vue.POXC Value") }}
                         <br/>({{ __("vue.POXC Units")}})
@@ -60,6 +63,7 @@
                         {{ sample.identifiers ? sample.identifiers[identifier.name] : ''}}
                     </td>
 
+                    <td>{{ sample.soil_texture }} </td>
 
                     <td>{{ sample.poxc_result }} </td>
                     <td>{{ sample.lr_p_result }} </td>
