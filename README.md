@@ -1,3 +1,5 @@
+NOTE: This repo is no longer active. The latest CRFS Soils data platform can be found here: https://github.com/stats4sd/ccrp-soil-health
+
 # CCRP Soils Data Platform
 
 This soils platform is the result of a collaboration between the Soils and the Research Methods Support teams, a pair of cross-cutting projects from the Collaborative Crop Research Program (CCRP).
