@@ -93,6 +93,7 @@ class ProjectXlsform extends Pivot
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    
     public function project()
     {
         return $this->belongsTo(Project::class);
@@ -107,4 +108,5 @@ class ProjectXlsform extends Pivot
     {
         return $this->hasMany(ProjectSubmission::class, 'project_xlsform_id');
     }
+
 }
